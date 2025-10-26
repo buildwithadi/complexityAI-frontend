@@ -1,0 +1,33 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- Modern Global Background --- */
+body {
+  background-color: #0d0a1c; /* Deep indigo base */
+  background-image: 
+    radial-gradient(at 10% 15%, #2a1a5c 0px, transparent 50%), /* Purple nebula */
+    radial-gradient(at 80% 20%, #30176d 0px, transparent 50%), /* Deeper purple */
+    radial-gradient(at 70% 80%, #1a2259 0px, transparent 50%), /* Dark blue */
+    radial-gradient(at 30% 90%, #3b195f 0px, transparent 50%); /* Violet */
+  background-attachment: fixed; /* Keeps the gradient fixed during scroll */
+  background-size: 100% 100%;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  
+  /* Sets a light default text color for the whole site */
+  color: #d1d5db; /* Tailwind text-gray-300 */
+}
+
+/* --- Hide scrollbar --- */
+/* For Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+/* For IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
