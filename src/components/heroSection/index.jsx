@@ -24,19 +24,21 @@ const HeroSection = () => {
 
           {/* Call to Action Button */}
               <div className="animate-fade-in-up delay-400">
-                <button 
-                  type="button"
-                  onClick={() => {
+                <a
+                  href="#code-editor"
+                  onClick={(e) => {
+                    // let browser handle native anchor smooth scroll (css `scroll-behavior`) but keep JS fallback
                     const el = document.getElementById('code-editor');
-                    if (el) {
-                      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
+                    if (!el) return;
+                    // prevent default so we can ensure smooth behavior works even if css isn't present
+                    e.preventDefault();
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }}
                   className="inline-flex items-center justify-center px-8 py-4 text-base font-medium rounded-full shadow-xl text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transform transition duration-300 ease-in-out hover:scale-105"
                 >
                   <Sparkles className='mr-3 h-6 w-6' /> 
                   Analyze Your Code
-                </button>
+                </a>
               </div>
         </div>
       </section>

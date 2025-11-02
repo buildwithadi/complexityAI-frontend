@@ -2,6 +2,7 @@ import React from 'react'
 import NavBar from './components/navBar'
 import HeroSection from './components/heroSection'
 import AnalyzerSection from './components/mainAnalyzer'
+import Footer from './components/footer'
 
 function App() {
   return (
@@ -12,12 +13,22 @@ function App() {
           <div className="absolute inset-0 bg-gradient-to-br from-purple-200/20 via-blue-200/20 to-indigo-200/20 animate-gradient"></div>
         </div>
         
+        {/* Header */}
+        <div className="relative z-20">
+          <NavBar />
+        </div>
+
         {/* Content */}
         <div className="relative z-10">
           <main className="container mx-auto px-4">
             <HeroSection />
             <AnalyzerSection />
           </main>
+        </div>
+
+        {/* Footer */}
+        <div className="relative z-10">
+          <Footer />
         </div>
       </div>
     </div>

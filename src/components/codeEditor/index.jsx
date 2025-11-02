@@ -4,7 +4,7 @@ import { FileCode, ChevronDown } from 'lucide-react';
 // --- CodeEditor Component ---
 const CodeEditor = ({ code, setCode, language, setLanguage }) => {
   return (
-      <div className="bg-white rounded-lg shadow-xl overflow-hidden h-full flex flex-col border border-gray-200">
+    <div id="code-editor" className="bg-white rounded-lg shadow-xl overflow-hidden h-full flex flex-col border border-gray-200">
       {/* Editor Header */}
         <div className="flex items-center justify-between bg-gray-100 px-4 py-2 text-gray-700">
         <div className="flex items-center gap-2">

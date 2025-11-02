@@ -1,83 +1,61 @@
-import React, { useState } from 'react';
+import { Github, Linkedin } from 'lucide-react';
+import React from 'react';
 
 // Define the NavBar component
 const NavBar = () => {
-  // State to manage the mobile menu's visibility
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // Function to toggle the mobile menu
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
 
   return (
-    <nav className="fixed top-10 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-zinc-700/30 backdrop-blur-lg shadow-xl z-50  rounded-full">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="sticky top-0 left-0 right-0 w-full bg-white/60 backdrop-blur-sm shadow z-50">
+      <div className="max-w-screen-xl mx-auto px-6 sm:px-8 lg:px-10">
         <div className="flex justify-between items-center h-14">
-          
-          {/* Logo */}
+
+          {/* Left: brand/title */}
           <div className="flex-shrink-0">
-            <a href="#" className="text-2xl font-bold text-purple-50">Logo</a>
-          </div>
-          
-          {/* Desktop Menu Links */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-neutral-300 hover:text-neutral-50 transition-colors duration-200">Home</a>
-              <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-neutral-300 hover:text-neutral-50 transition-colors duration-200">About</a>
-              <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-neutral-300 hover:text-neutral-50 transition-colors duration-200">Services</a>
-              <a href="#" className="px-3 py-2 rounded-md text-sm font-medium text-neutral-300 hover:text-neutral-50 transition-colors duration-200">Contact</a>
-            </div>
+            <a href="#" className="text-lg font-semibold text-gray-900">Complexity AI</a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="-mr-2 flex md:hidden">
+          {/* Right: analyze button + social buttons */}
+          <div className="flex items-center space-x-3">
+
+            {/* small icon-only button for tight screens */}
             <button
               type="button"
-              id="mobile-menu-button"
-              onClick={toggleMobileMenu} // React onClick event handler
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-black hover:bg-white/50 focus:outline-none transition-colors duration-200"
+              onClick={() => {
+                const el = document.getElementById('code-editor');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }}
+              aria-label="Analyze"
+              className="sm:hidden inline-flex items-center p-2 rounded-full text-sm font-medium text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             >
-              <span className="sr-only">Open main menu</span>
-              {/* Hamburger Icon (shown when menu is closed) */}
-              <svg
-                id="hamburger-icon"
-                className={`${isMobileMenuOpen ? 'hidden' : 'block'} h-6 w-6`}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-              {/* Close Icon (shown when menu is open) */}
-              <svg
-                id="close-icon"
-                className={`${isMobileMenuOpen ? 'block' : 'hidden'} h-6 w-6`}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              {/* simple arrow-down icon */}
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10 3a1 1 0 01.894.553l5 10A1 1 0 0115 15H5a1 1 0 01-.894-1.447l5-10A1 1 0 0110 3zm0 4a1 1 0 100 2 1 1 0 000-2z" clipRule="evenodd" />
               </svg>
             </button>
+
+            
+            <a
+              href="https://www.linkedin.com/in/buildwithadi/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              {/* LinkedIn svg */}
+              <Linkedin/>
+            </a>
+
+            <a
+              href="https://github.com/buildwithadi"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md text-gray-900  hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              {/* GitHub svg */}
+              <Github/>
+            </a>
           </div>
-
-        </div>
-      </div>
-
-      {/* Mobile Menu (conditionally rendered) */}
-      {/* We can use a simple conditional render or toggle the 'hidden' class */}
-      <div 
-        id="mobile-menu" 
-        className={`${isMobileMenuOpen ? 'block' : 'hidden'} md:hidden bg-white/50 backdrop-blur-lg rounded-b-lg shadow-lg`}
-      >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-white/70 transition-colors duration-200">Home</a>
-          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-white/70 transition-colors duration-200">About</a>
-          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-white/70 transition-colors duration-200">Services</a>
-          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-white/70 transition-colors duration-200">Contact</a>
         </div>
       </div>
     </nav>
@@ -85,3 +63,5 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+
