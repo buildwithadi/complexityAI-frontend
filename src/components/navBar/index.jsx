@@ -15,25 +15,7 @@ const NavBar = () => {
           </div>
 
           {/* Right: analyze button + social buttons */}
-          <div className="flex items-center space-x-3">
-
-            {/* small icon-only button for tight screens */}
-            <button
-              type="button"
-              onClick={() => {
-                const el = document.getElementById('code-editor');
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }}
-              aria-label="Analyze"
-              className="sm:hidden inline-flex items-center p-2 rounded-full text-sm font-medium text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            >
-              {/* simple arrow-down icon */}
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 3a1 1 0 01.894.553l5 10A1 1 0 0115 15H5a1 1 0 01-.894-1.447l5-10A1 1 0 0110 3zm0 4a1 1 0 100 2 1 1 0 000-2z" clipRule="evenodd" />
-              </svg>
-            </button>
-
-            
+          <div className="flex items-center space-x-3">            
             <a
               href="https://www.linkedin.com/in/buildwithadi/"
               target="_blank"
