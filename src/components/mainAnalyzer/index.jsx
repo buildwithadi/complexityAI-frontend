@@ -77,7 +77,7 @@ const AnalyzerSection = () => {
 
     try {
       const response = await fetch(
-        "https://complexityai-backend-0da8.onrender.com/analyze",
+        "https://grey-sandpiper-528567.hostingersite.com/analyze",
         {
           method: "POST",
           headers: {
@@ -87,7 +87,7 @@ const AnalyzerSection = () => {
             code: code,
             language: language,
           }),
-        }
+        },
       );
 
       const data = await response.json();
